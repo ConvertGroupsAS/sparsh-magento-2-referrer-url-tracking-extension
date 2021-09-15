@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="custom_controller_success_action" instance="Sparsh\ReferrerUrlTracking\Observer\CustomerOrder"  />
+    </event>
+    <event name="customer_login">
+        <observer name="customer_login_observer" instance="Sparsh\ReferrerUrlTracking\Observer\CustomerLogin" />
+    </event>
+    <event name="customer_logout">
+        <observer name="customer_logout_observer" instance="Sparsh\ReferrerUrlTracking\Observer\CustomerLogout" />
+    </event>
+</config>

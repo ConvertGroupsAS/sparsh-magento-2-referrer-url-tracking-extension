@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Sparsh\ReferrerUrlTracking\Block\Adminhtml\Report\Customer" name="customer_report_grid">
+                <block class="Sparsh\ReferrerUrlTracking\Block\Adminhtml\Report\Grid" name="customer_report_grid.grid" as="grid">
+                    <arguments>
+                        <argument name="id" xsi:type="string">customer_report_grid</argument>
+                        <argument name="dataSource" xsi:type="object">Sparsh\ReferrerUrlTracking\Model\ResourceModel\ReferrerUrl\Collection</argument>
+                    </arguments>
+                    <block class="Sparsh\ReferrerUrlTracking\Block\Adminhtml\Report\Grid\Export" name="adminhtml.block.report.customer.referrerurl.export" as="grid.export">
+                        <arguments>
+                            <argument name="exportTypes" xsi:type="array">
+                                <item name="csv" xsi:type="array">
+                                    <item name="urlPath" xsi:type="string">*/*/exportCustomerCsv</item>
+                                    <item name="label" xsi:type="string" translate="true">CSV</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="customer_report_grid.grid.columnSet" as="grid.columnSet">
+                        <arguments>
+                            <argument name="rowUrl" xsi:type="array">
+                                <item name="path" xsi:type="string"></item>
+                            </argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="domain_name">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Domain</argument>
+                                <argument name="index" xsi:type="string">domain_name</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-name</argument>
+                                <argument name="header_css_class" xsi:type="string">col-name</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="customer_count">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Count</argument>
+                                <argument name="index" xsi:type="string">customer_count</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-count</argument>
+                                <argument name="header_css_class" xsi:type="string">col-count</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

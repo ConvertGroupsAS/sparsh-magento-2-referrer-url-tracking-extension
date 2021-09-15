@@ -1,0 +1,8 @@
+<?php if ($block->getReferrerUrl() && $block->isEnableOrderReferrerUrl()) : ?>
+<section class="admin__page-section order-referrer-url">
+    <div class="admin__page-section-title">
+        <span class="title"><?= /* @noEscape */ $block->escapeHtml(__('Referrer URL')) ?></span>
+    </div>
+    <div class="admin__page-section-content"><?= /* @noEscape */ $block->getReferrerUrl() ?></div>
+</section>
+<?php endif; ?>
